@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="500dp"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+
+
+            android:fontFamily="@font/ysdisplay"
+            android:id="@+id/settingsBack"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:drawableLeft="@drawable/light_mode_back"
+            android:drawableTint="@color/black"
+
+            android:layout_height="match_parent"
+
+            android:foreground="?attr/selectableItemBackground"
+
+            android:text="Настройки"
+            android:textColor="#000000"
+            android:textSize="22sp" />
+
+    </FrameLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="33dp"
+        android:orientation="vertical">
+
+        <Switch
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+
+
+
+            android:layout_weight="1"
+            android:fontFamily="@font/ysdisplay"
+
+            android:layout_marginStart="16dp"
+
+            android:text="@string/light_play_list"
+
+            android:textColor="@color/black"
+
+            android:showText="false"
+            android:textOff="@string/light_play_list"
+            android:textOn="@string/dark_play_list"
+            android:textSize="20sp"
+
+
+            />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fontFamily="@font/ysdisplay"
+            android:layout_margin="0dp"
+            android:layout_gravity="left"
+            android:layout_weight="1"
+
+            android:textSize="20sp"
+
+            android:textAllCaps = "false"
+            android:text="@string/share_play_list"
+            android:gravity="left|center_vertical"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/white"
+            app:iconGravity="end"
+            app:iconTint="@color/black"
+            app:icon="@drawable/light_mode_share"
+            />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+
+            android:layout_margin="0dp"
+            android:layout_gravity="left"
+            android:layout_weight="1"
+            android:fontFamily="@font/ysdisplay"
+            android:textSize="20dp"
+
+            android:textAllCaps = "false"
+            android:text="@string/send_play_list"
+            android:gravity="left|center_vertical"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/white"
+            app:iconGravity="end"
+            app:iconTint="@color/black"
+            app:icon="@drawable/light_mode_support"
+            />
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+
+            android:fontFamily="@font/ysdisplay"
+            android:layout_margin="0dp"
+            android:layout_gravity="left"
+            android:layout_weight="1"
+            android:gravity="left|center_vertical"
+
+            android:textAllCaps = "false"
+            android:text="@string/user_play_list"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/white"
+            app:iconGravity="end"
+            app:iconTint="@color/black"
+            app:icon="@drawable/light_mode_user"
+            />
+    </LinearLayout>
+</LinearLayout>
