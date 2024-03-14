@@ -14,8 +14,10 @@ class MediaActivity : AppCompatActivity() {
 //нажатие на поиск
         val buttonMediaBack = findViewById<Button>(R.id.buttonMediaBack)
         buttonMediaBack.setOnClickListener {
-            val displayIntent = Intent(this, MainActivity::class.java)
-            startActivity(displayIntent)
+            onBackPressed()
+            /*val displayIntent = Intent(this, MainActivity::class.java)
+            //onBackPressed()
+            startActivity(displayIntent)*/
 
         }
     }

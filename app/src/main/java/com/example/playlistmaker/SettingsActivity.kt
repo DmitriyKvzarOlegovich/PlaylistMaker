@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
-private const val TITLE_TAG = "settingsActivityTitle"
+//private const val TITLE_TAG = "settingsActivityTitle"
 
 class SettingsActivity : AppCompatActivity() {
 
@@ -15,8 +15,9 @@ class SettingsActivity : AppCompatActivity() {
         val settingsBack = findViewById<TextView>(R.id.settingsBack)
 
         settingsBack.setOnClickListener {
-            val displayIntent = Intent(this, MainActivity::class.java)
-            startActivity(displayIntent)
+            onBackPressed()
+            //val displayIntent = Intent(this, MainActivity::class.java)
+            //startActivity(displayIntent)
 
         }
 

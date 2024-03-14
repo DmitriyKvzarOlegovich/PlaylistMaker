@@ -3,52 +3,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="@color/black"
     android:orientation="vertical"
-    android:padding="20dp">
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    android:padding="@dimen/hight">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:text="PleyList maker"
-            android:textColor="#ffffff"
-            android:textSize="26dp" />
-
-
-    </FrameLayout>
-
-
+            android:layout_gravity="start"
+            android:text="@string/title"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="@dimen/hight"
         android:orientation="vertical">
 
         <Button
-
             android:id="@+id/buttonSearchBack"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-
-            android:layout_margin="8dp"
+            android:layout_height="@dimen/zero"
             android:layout_gravity="center"
             android:layout_weight="1"
-            app:cornerRadius="16dp"
-
+            app:cornerRadius="@dimen/rad"
             android:textAllCaps = "false"
             android:text="@string/search_play_list"
-            android:textSize="24dp"
+            android:textSize="@dimen/text"
             android:textColor="@color/black"
             android:backgroundTint="@color/white"
             app:iconGravity="textStart"
             app:iconTint="@color/black"
-            app:icon="@drawable/light_mode_loupe"
-            />
+            app:icon="@drawable/light_mode_loupe"/>
+
     </LinearLayout>
 </LinearLayout>
