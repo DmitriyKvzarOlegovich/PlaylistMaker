@@ -45,7 +45,7 @@
             android:textSize="@dimen/textMin" />
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/buttonShare"
             android:layout_width="match_parent"
             android:layout_height="@dimen/hightmenu"
             android:fontFamily="@font/ysdisplay"
@@ -60,7 +60,7 @@
             app:icon="@drawable/light_mode_share" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/buttonSupport"
             android:layout_width="match_parent"
             android:layout_height="@dimen/hightmenu"
             android:fontFamily="@font/ysdisplay"
@@ -75,7 +75,7 @@
             app:icon="@drawable/light_mode_support" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/buttonUser"
             android:layout_width="match_parent"
             android:layout_height="@dimen/hightmenu"
             android:fontFamily="@font/ysdisplay"

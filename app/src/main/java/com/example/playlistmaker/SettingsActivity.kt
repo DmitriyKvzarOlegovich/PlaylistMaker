@@ -1,11 +1,10 @@
 package com.example.playlistmaker
 
-import android.content.Intent
+
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
-//private const val TITLE_TAG = "settingsActivityTitle"
 
 class SettingsActivity : AppCompatActivity() {
 
@@ -16,8 +15,7 @@ class SettingsActivity : AppCompatActivity() {
 
         settingsBack.setOnClickListener {
             onBackPressed()
-            //val displayIntent = Intent(this, MainActivity::class.java)
-            //startActivity(displayIntent)
+
 
         }
 

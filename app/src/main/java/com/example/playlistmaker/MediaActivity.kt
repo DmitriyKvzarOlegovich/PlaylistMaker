@@ -1,7 +1,7 @@
 package com.example.playlistmaker
 
 
-import android.content.Intent
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -15,9 +15,7 @@ class MediaActivity : AppCompatActivity() {
         val buttonMediaBack = findViewById<Button>(R.id.buttonMediaBack)
         buttonMediaBack.setOnClickListener {
             onBackPressed()
-            /*val displayIntent = Intent(this, MainActivity::class.java)
-            //onBackPressed()
-            startActivity(displayIntent)*/
+
 
         }
     }
