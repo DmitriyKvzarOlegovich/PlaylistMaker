@@ -2,6 +2,7 @@ package com.example.playlistmaker
 
 
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -17,7 +18,21 @@ class SettingsActivity : AppCompatActivity() {
             onBackPressed()
 
 
+
+
+            }
+        //проверка работоспособности фрейма
+        val test = findViewById<TextView>(R.id.buttonSupport)
+        test.setOnClickListener {
+            onBackPressed()
+
+
         }
+
+
+
+
+
 
     }
 

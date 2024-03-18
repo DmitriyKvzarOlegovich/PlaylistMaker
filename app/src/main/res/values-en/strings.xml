@@ -1,16 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Practicum Project</string>
-
+    <string name="title">PlayList maker</string>
     <string name="search_play_list">Поиск</string>
-    <string name="media_play_list">Медиотека</string>
+    <string name="media_play_list">Медиатека</string>
     <string name="settings_play_list">Настройки</string>
     <string name="share_play_list">Поделится приложением</string>
     <string name="send_play_list">Написать в поддержку</string>
     <string name="user_play_list">Пользовательское соглашение</string>
     <string name="dark_play_list">Темная тема</string>
     <string name="light_play_list">Светлая тема</string>
-
-
+    <string name="title_activity_settings">title_activity_settings</string>
+    <string name="title_activity_search">title_activity_search</string>
+    <string name="title_activity_media">title_activity_media</string>
+    <string name="title_activity_light">Светлая тема</string>
+    <string name="title_activity_dark">Темная тема</string>
 
 </resources>

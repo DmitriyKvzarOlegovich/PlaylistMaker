@@ -20,7 +20,7 @@
             android:gravity="center_vertical"
             android:text="@string/settings_play_list"
             android:textColor="@color/black"
-            android:textSize="@dimen/text"
+            android:textSize="@dimen/texttTitle"
             app:drawableLeftCompat="@drawable/light_mode_back"
             app:drawableTint="@color/black" />
 
@@ -30,7 +30,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/hight"
         android:orientation="vertical">
 
@@ -39,55 +39,97 @@
             android:layout_height="@dimen/hightmenu"
             android:fontFamily="@font/ysdisplay"
             android:layout_marginStart="@dimen/hight"
-            android:text="@string/light_play_list"
+
+            android:text="@string/dark_play_list"
+            android:trackTintMode="@color/setMenuIcon"
+            android:trackTint="@color/setMenuIcon"
             android:textColor="@color/black"
+            android:textOff="@string/dark_play_list"
+            android:textOn="@string/light_play_list"
             android:showText="true"
             android:textSize="@dimen/textMin" />
 
-        <Button
-            android:id="@+id/buttonShare"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/hightmenu"
-            android:fontFamily="@font/ysdisplay"
-            android:textSize="@dimen/textMin"
-            android:textAllCaps = "false"
-            android:text="@string/share_play_list"
-            android:gravity="start|center_vertical"
-            android:textColor="@color/black"
-            android:backgroundTint="@color/white"
-            app:iconGravity="end"
-            app:iconTint="@color/black"
-            app:icon="@drawable/light_mode_share" />
 
-        <Button
+        <FrameLayout
+            android:layout_height="61dp"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:id="@+id/buttonShare"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/hightmenu"
+                android:layout_marginStart="@dimen/hight"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/ysdisplay"
+                android:gravity="start|center_vertical"
+
+                android:text="@string/share_play_list"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textMin" />
+            <ImageView
+                android:layout_width="@dimen/hightmenu"
+                android:layout_height="@dimen/hightmenu"
+                android:layout_gravity="right"
+                android:gravity="end|center_vertical"
+                android:scaleType="centerInside"
+                android:src="@drawable/light_mode_share"
+                app:tint="@color/setMenuIcon" />
+        </FrameLayout>
+
+    <FrameLayout
+        android:layout_height="@dimen/hightmenu"
+        android:layout_width="match_parent">
+
+        <TextView
             android:id="@+id/buttonSupport"
             android:layout_width="match_parent"
             android:layout_height="@dimen/hightmenu"
-            android:fontFamily="@font/ysdisplay"
-            android:textSize="@dimen/textMin"
-            android:textAllCaps = "false"
-            android:text="@string/send_play_list"
-            android:gravity="start|center_vertical"
-            android:textColor="@color/black"
+            android:layout_marginStart="@dimen/textMarginStart"
             android:backgroundTint="@color/white"
-            app:iconGravity="end"
-            app:iconTint="@color/black"
-            app:icon="@drawable/light_mode_support" />
+            android:fontFamily="@font/ysdisplay"
+            android:gravity="start|center_vertical"
 
-        <Button
+            android:text="@string/send_play_list"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textMin" />
+
+        <ImageView
+            android:layout_width="@dimen/hightmenu"
+            android:layout_height="@dimen/hightmenu"
+            android:layout_gravity="right"
+            android:gravity="end|center_vertical"
+            android:scaleType="centerInside"
+            android:src="@drawable/light_mode_support"
+            app:tint="@color/setMenuIcon" />
+    </FrameLayout>
+    <FrameLayout
+        android:layout_height="61dp"
+        android:layout_width="match_parent">
+
+        <TextView
             android:id="@+id/buttonUser"
             android:layout_width="match_parent"
             android:layout_height="@dimen/hightmenu"
+            android:layout_marginStart="@dimen/textMarginStart"
+            android:backgroundTint="@color/white"
             android:fontFamily="@font/ysdisplay"
             android:gravity="start|center_vertical"
-            android:textAllCaps = "false"
-            android:text="@string/user_play_list"
-            android:textSize="@dimen/textMin"
-            android:textColor="@color/black"
-            android:backgroundTint="@color/white"
-            app:iconGravity="end"
-            app:iconTint="@color/black"
-            app:icon="@drawable/light_mode_user" />
 
+            android:text="@string/send_play_list"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textMin" />
+        <ImageView
+            android:layout_width="@dimen/hightmenu"
+            android:layout_height="@dimen/hightmenu"
+            android:layout_gravity="right"
+            android:gravity="end|center_vertical"
+            android:scaleType="centerInside"
+            android:src="@drawable/light_mode_user"
+            app:tint="@color/setMenuIcon" />
+    </FrameLayout>
     </LinearLayout>
+
 </LinearLayout>
