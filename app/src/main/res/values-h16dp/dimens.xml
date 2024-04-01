@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <dimen name="hight">16dp</dimen>
+    <dimen name="rad">16dp</dimen>
+    <dimen name="text">26sp</dimen>
+    <dimen name="texttTitle">22sp</dimen>
+    <dimen name="textMarginStart">16dp</dimen>
+    <dimen name="textMin">16sp</dimen>
+    <dimen name="zero">0dp</dimen>
+    <dimen name="hightmenu">61dp</dimen>
+</resources>
