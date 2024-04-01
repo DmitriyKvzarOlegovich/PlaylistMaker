@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@color/graund"
+    android:background="?attr/colorPrimary"
     android:orientation="vertical"
     android:padding="20dp">
 
@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
-        android:fontFamily="@font/ysdisplay"
+        android:fontFamily="@font/ys_text_medium"
         android:text="@string/title"
         android:textColor="@color/white"
         android:textSize="@dimen/text" />
@@ -27,57 +27,23 @@
         android:orientation="vertical">
 
         <Button
+            style="@style/ButtonMainMenuStyle"
             android:id="@+id/buttonSearchL"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/zero"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/hight"
-            android:layout_weight="1"
-            android:backgroundTint="@color/white"
-            android:fontFamily="@font/ysdisplay"
             android:text="@string/search_play_list"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text"
-            app:cornerRadius="@dimen/rad"
             app:icon="@drawable/light_mode_loupe"
-            app:iconGravity="textStart"
-            app:iconTint="@color/black" />
+            />
 
         <Button
+            style="@style/ButtonMainMenuStyle"
             android:id="@+id/buttonMediaL"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/zero"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/hight"
-            android:layout_weight="1"
-            android:backgroundTint="@color/white"
-            android:fontFamily="@font/ysdisplay"
             android:text="@string/media_play_list"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text"
-            app:cornerRadius="@dimen/rad"
-            app:icon="@drawable/light_mode_media"
-            app:iconGravity="textStart"
-            app:iconTint="@color/black" />
+            app:icon="@drawable/light_mode_media" />
 
         <Button
+            style="@style/ButtonMainMenuStyle"
             android:id="@+id/buttonSettingsL"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/zero"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/hight"
-            android:layout_weight="1"
-            android:backgroundTint="@color/white"
-            android:fontFamily="@font/ysdisplay"
             android:text="@string/settings_play_list"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text"
-            app:cornerRadius="@dimen/rad"
-            app:icon="@drawable/light_mode_settings"
-            app:iconGravity="textStart"
-            app:iconTint="@color/black" />
+            app:icon="@drawable/light_mode_settings"/>
+
     </LinearLayout>
 </LinearLayout>

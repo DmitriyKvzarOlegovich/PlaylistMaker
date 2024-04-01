@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="?attr/colorPrimaryVariant"
     android:orientation="vertical"
     >
 
@@ -12,17 +12,12 @@
         android:layout_height="wrap_content">
 
         <TextView
+            style="@style/ButtonSettingsMenuStyle"
+            android:layout_marginStart="0dp"
             android:id="@+id/settingsBack"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/ysdisplay"
-            android:foreground="?attr/selectableItemBackground"
-            android:gravity="center_vertical"
             android:text="@string/settings_play_list"
-            android:textColor="@color/black"
-            android:textSize="@dimen/texttTitle"
             app:drawableLeftCompat="@drawable/light_mode_back"
-            app:drawableTint="@color/black" />
+            app:drawableTint="?attr/colorOnPrimary" />
 
     </FrameLayout>
 
@@ -35,19 +30,11 @@
         android:orientation="vertical">
 
         <androidx.appcompat.widget.SwitchCompat
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/hightmenu"
-            android:fontFamily="@font/ysdisplay"
-            android:layout_marginStart="@dimen/hight"
-
-            android:text="@string/dark_play_list"
-            android:trackTintMode="@color/setMenuIcon"
-            android:trackTint="@color/setMenuIcon"
-            android:textColor="@color/black"
-            android:textOff="@string/dark_play_list"
-            android:textOn="@string/light_play_list"
+            style="@style/ButtonSettingsMenuStyle"
+            android:id="@+id/themeSwitch"
             android:showText="true"
-            android:textSize="@dimen/textMin" />
+
+            />
 
 
         <FrameLayout
@@ -55,18 +42,11 @@
             android:layout_width="match_parent">
 
             <TextView
-                android:id="@+id/buttonShare"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/hightmenu"
-                android:layout_marginStart="@dimen/hight"
-                android:backgroundTint="@color/white"
-                android:fontFamily="@font/ysdisplay"
-                android:gravity="start|center_vertical"
+                style="@style/ButtonSettingsMenuStyle"
 
-                android:text="@string/share_play_list"
-                android:textAllCaps="false"
-                android:textColor="@color/black"
-                android:textSize="@dimen/textMin" />
+                android:id="@+id/buttonShare"
+                android:text="@string/share_play_list"/>
+
             <ImageView
                 android:layout_width="@dimen/hightmenu"
                 android:layout_height="@dimen/hightmenu"
@@ -82,18 +62,9 @@
         android:layout_width="match_parent">
 
         <TextView
+            style="@style/ButtonSettingsMenuStyle"
             android:id="@+id/buttonSupport"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/hightmenu"
-            android:layout_marginStart="@dimen/textMarginStart"
-            android:backgroundTint="@color/white"
-            android:fontFamily="@font/ysdisplay"
-            android:gravity="start|center_vertical"
-
-            android:text="@string/send_play_list"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="@dimen/textMin" />
+            android:text="@string/send_play_list" />
 
         <ImageView
             android:layout_width="@dimen/hightmenu"
@@ -109,18 +80,10 @@
         android:layout_width="match_parent">
 
         <TextView
+            style="@style/ButtonSettingsMenuStyle"
             android:id="@+id/buttonUser"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/hightmenu"
-            android:layout_marginStart="@dimen/textMarginStart"
-            android:backgroundTint="@color/white"
-            android:fontFamily="@font/ysdisplay"
-            android:gravity="start|center_vertical"
+            android:text="@string/user_play_list"/>
 
-            android:text="@string/send_play_list"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="@dimen/textMin" />
         <ImageView
             android:layout_width="@dimen/hightmenu"
             android:layout_height="@dimen/hightmenu"
