@@ -1,74 +1,51 @@
 package com.example.playlistmaker
 
+import android.content.Context
 
-import android.graphics.PorterDuff
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.View
-import android.widget.Button
+
+import android.view.inputmethod.InputMethodManager
+
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
-
+import androidx.core.view.isVisible
 
 class SearchActivity : AppCompatActivity() {
     private var searchInputEditText: String? = AMOUNT_DEF
 
     companion object {
-        const val PRODUCT_AMOUNT = "inputEditText"
-        const val AMOUNT_DEF = ""
+        private const val PRODUCT_AMOUNT = "inputEditText"
+        private const val AMOUNT_DEF = ""
     }
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
-
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
-//нажатие на поиск
-        // Значение savedInstanceState равно null в том случае, если activity нечего восстанавливать.
-        // То есть не произошло ситуации, при которой необходимо сохранить состояние
-        if (savedInstanceState != null) {
-            searchInputEditText = savedInstanceState.getString(PRODUCT_AMOUNT, AMOUNT_DEF)
 
-
-        } else {
-
-            //searchInputEditText = savedInstanceState?.getString(PRODUCT_AMOUNT)
-
-        }
-        //inputEditText.settext(searchInputEditText)
-
+//нажатие на поиск Возврат в предидущее меню
         val buttonsearchBack = findViewById<TextView>(R.id.searchBack)
         buttonsearchBack.setOnClickListener {
             onSaveInstanceState(Bundle())
             onBackPressed()
-
-
         }
-        //Работа с поиском
 
-
-        val linearLayout = findViewById<LinearLayout>(R.id.containerList)
+//Работа с поиском
+        //val linearLayout = findViewById<LinearLayout>(R.id.containerList)
         val inputEditText = findViewById<EditText>(R.id.inputEditText)
         val clearButton = findViewById<ImageView>(R.id.clearIcon)
-
         clearButton.setOnClickListener {
             inputEditText.setText("")
-            clearButton.visibility = clearButtonVisibility("")
+            inputEditText.requestFocus()
+            val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
+            inputMethodManager?.hideSoftInputFromWindow(inputEditText.windowToken, 0)
+            clearButton.isVisible = false
         }
-
-
-
         inputEditText.setText(searchInputEditText)
-
-
-        //inputEditText.getBackground().setColorFilter(theme.colorSecondary, PorterDuff.Mode.SRC_ATOP);
-
+        inputEditText.requestFocus()
         val simpleTextWatcher = object : TextWatcher {
             override fun beforeTextChanged(
                 s: CharSequence?,
@@ -78,36 +55,19 @@ class SearchActivity : AppCompatActivity() {
             ) {
                 // empty
             }
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (s.isNullOrEmpty()) {
-                    clearButton.visibility = clearButtonVisibility("")
-                    //linearLayout.setBackgroundColor(getColor(R.color.white))
+                    clearButton.isVisible = false
                 } else {
                     searchInputEditText = s.toString()
-                    //Toast.makeText(this@SearchActivity, "Получаем строку", Toast.LENGTH_SHORT)
-                    clearButton.visibility = clearButtonVisibility(s)
+                    clearButton.isVisible = true
                 }
-
             }
-
             override fun afterTextChanged(s: Editable?) {
                 onSaveInstanceState(Bundle())  // empty
             }
         }
         inputEditText.addTextChangedListener(simpleTextWatcher)
-        // отработкаа запоминания
-        //searchInputEditText=inputEditText.toString()
-        //onSaveInstanceState(Bundle.p(putString(inputEditText.toString())))
-        //onSaveInstanceState(Bundle())
-    }
-//Исчезновение кнопки удаления текста
-    private fun clearButtonVisibility(s: CharSequence?): Int {
-        return if (s.isNullOrEmpty()) {
-            View.GONE
-        } else {
-            View.VISIBLE
-        }
     }
 
 //Переопределяем сохранение зачения текстового поля ввода
@@ -115,15 +75,10 @@ class SearchActivity : AppCompatActivity() {
         super.onSaveInstanceState(savedInstanceState)
         savedInstanceState.putString(PRODUCT_AMOUNT, searchInputEditText)
     }
-
-
-
-
+//Переопределяем востановление зачения текстового поля ввода
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        // Возвращаем сохраненное значение
         searchInputEditText = savedInstanceState.getString(PRODUCT_AMOUNT)
-
     }
 }
 

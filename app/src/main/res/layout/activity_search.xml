@@ -7,80 +7,68 @@
     android:layout_height="match_parent"
     android:background="?attr/colorPrimaryVariant"
     android:orientation="vertical">
+    <TextView
+       android:id="@+id/searchBack"
+       style="@style/ButtonSettingsMenuStyle"
+       android:layout_height="56dp"
+       android:layout_marginStart="0dp"
+       android:layout_marginBottom="0dp"
+       android:text="@string/search_play_list"
+       android:textSize="@dimen/texttTitle"
+       app:drawableLeftCompat="@drawable/light_mode_back"
+       app:drawableTint="?attr/colorOnPrimary" />
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/searchBack"
-            style="@style/ButtonSettingsMenuStyle"
-            android:layout_marginStart="0dp"
-            android:text="@string/search_play_list"
-            android:textSize="@dimen/texttTitle"
-            app:drawableLeftCompat="@drawable/light_mode_back"
-            app:drawableTint="?attr/colorOnPrimary" />
-
-    </FrameLayout>
-
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/hight"
+        android:layout_height="52dp"
         android:orientation="horizontal">
-
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
             <Button
                 style="@style/searchStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="?attr/colorSecondary"
+                android:layout_marginTop="5dp"
                 app:cornerRadius="10dp" />
 
             <ImageView
                 android:id="@+id/search"
-
                 style="@style/searchStyle"
                 android:layout_width="18dp"
                 android:layout_height="16dp"
-
+                android:tint="?attr/colorOnSecondary"
                 android:layout_gravity="start|center_vertical"
                 android:layout_marginStart="25dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="3dp"
                 android:src="@drawable/light_mode_loupe"
                 app:drawableLeftCompat="@drawable/light_mode_loupe"
-                app:drawableTint="?attr/colorOnSecondary" />
+                />
 
             <EditText
-
                 android:id="@+id/inputEditText"
                 style="@style/searchStyle"
+                android:layout_marginTop="4dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50dp"
                 android:background="@android:color/transparent"
                 android:hint="@string/search_play_list"
+                android:textColorHighlight="@color/grey"
+                android:textColorHint="?attr/colorOnSecondary"
                 android:textColor="@color/black"
                 android:inputType="text"
-                
                 android:visibility="visible" />
 
             <ImageView
                 android:id="@+id/clearIcon"
-
                 style="@style/searchStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="25dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="20dp"
                 android:layout_gravity="end"
                 android:src="@drawable/menu_clear_close"
-                android:visibility="invisible" />
-        </FrameLayout>
-    </FrameLayout>
+                android:visibility="invisible"
+                android:imeOptions="actionDone"/>
+            </FrameLayout>
 </LinearLayout>

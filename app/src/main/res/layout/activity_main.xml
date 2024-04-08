@@ -19,7 +19,6 @@
         android:textColor="@color/white"
         android:textSize="@dimen/text" />
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -28,19 +27,30 @@
 
         <Button
             style="@style/ButtonMainMenuStyle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zero"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/hight"
             android:id="@+id/buttonSearchL"
             android:text="@string/search_play_list"
-            app:icon="@drawable/light_mode_loupe"
-            />
+            app:icon="@drawable/light_mode_loupe" />
 
         <Button
             style="@style/ButtonMainMenuStyle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zero"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/hight"
             android:id="@+id/buttonMediaL"
             android:text="@string/media_play_list"
             app:icon="@drawable/light_mode_media" />
 
         <Button
             style="@style/ButtonMainMenuStyle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zero"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/hight"
             android:id="@+id/buttonSettingsL"
             android:text="@string/settings_play_list"
             app:icon="@drawable/light_mode_settings"/>
