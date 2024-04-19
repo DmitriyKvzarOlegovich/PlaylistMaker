@@ -14,5 +14,9 @@
     <string name="title_activity_media">title_activity_media</string>
     <string name="title_activity_light">Светлая тема</string>
     <string name="title_activity_dark">Темная тема</string>
-
+    <string name="send_play_list_message"> Сообщение разработчикам и разработчицам приложения Playlist Maker</string>
+    <string name="userAgreement">https://yandex.ru/legal/practicum_offer/</string>
+    <string name="email_fo_send">d@korolkov.info</string>
+    <string name="send_to">https://practicum.yandex.ru/android-developer/</string>
+    <string name="thanks">Спасибо разработчикам и разработчицам за крутое приложение!</string>
 </resources>
