@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 
 import android.view.inputmethod.InputMethodManager
 
@@ -14,6 +17,8 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.view.isVisible
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class SearchActivity : AppCompatActivity() {
     private var searchInputEditText: String? = AMOUNT_DEF
@@ -23,8 +28,18 @@ class SearchActivity : AppCompatActivity() {
         private const val AMOUNT_DEF = ""
     }
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        //setContentView(R.layout.activity_search)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
+
+
+        val rvTrack = findViewById<RecyclerView>(R.id.trackListFace)
+        rvTrack.layoutManager = LinearLayoutManager(this)
+        val  listTrack: MutableList<Track> = ListTrack().filinglistTrack()
+        rvTrack.adapter = TrackAdapter(listTrack)
+
+
 
 //нажатие на поиск Возврат в предидущее меню
         val buttonsearchBack = findViewById<TextView>(R.id.searchBack)
@@ -80,5 +95,5 @@ class SearchActivity : AppCompatActivity() {
         super.onRestoreInstanceState(savedInstanceState)
         searchInputEditText = savedInstanceState.getString(PRODUCT_AMOUNT)
     }
-}
 
+}

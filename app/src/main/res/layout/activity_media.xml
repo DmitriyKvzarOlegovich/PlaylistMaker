@@ -25,16 +25,18 @@
 
             android:id="@+id/buttonMediaBack"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="249dp"
             android:layout_gravity="center"
-            app:cornerRadius="@dimen/rad"
-            android:textAllCaps = "false"
-            android:text="@string/media_play_list"
-            android:textSize="@dimen/text"
-            android:textColor="@color/black"
             android:backgroundTint="@color/white"
+            android:text="@string/media_play_list"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text"
+            app:cornerRadius="@dimen/rad"
+            app:icon="@drawable/light_mode_media"
             app:iconGravity="textStart"
-            app:iconTint="@color/black"
-            app:icon="@drawable/light_mode_media"/>
+            app:iconTint="@color/black" />
+
+
     </LinearLayout>
 </LinearLayout>

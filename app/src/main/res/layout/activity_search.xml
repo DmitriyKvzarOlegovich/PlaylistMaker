@@ -71,4 +71,12 @@
                 android:visibility="invisible"
                 android:imeOptions="actionDone"/>
             </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/trackListFace"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/colorPrimaryVariant"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 </LinearLayout>

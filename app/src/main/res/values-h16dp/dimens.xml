@@ -7,6 +7,7 @@
     <dimen name="texttTitle">22sp</dimen>
     <dimen name="textMarginStart">16dp</dimen>
     <dimen name="textMin">16sp</dimen>
+    <dimen name="textNano">11sp</dimen>
     <dimen name="zero">0dp</dimen>
     <dimen name="hightmenu">61dp</dimen>
 </resources>
