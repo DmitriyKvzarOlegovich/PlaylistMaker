@@ -1,5 +1,7 @@
 package com.example.playlistmaker
 
+import android.content.Context
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +15,8 @@ class Track(
     var trackName: String, // Название композиции
     var artistName: String, // Имя исполнителя
     var trackTime: String, // Продолжительность трека
-    var artworkUrl100: String, ) // Ссылка на изображение обложки
+    var artworkUrl100: String,
+) // Ссылка на изображение обложки
 
 
 
@@ -55,17 +58,28 @@ class ListTrack {
 
 class TrackAdapter(var listTrack: MutableList<Track>) :
     RecyclerView.Adapter<TrackAdapter.TrackHolder>() {
-    //private val listTrack: MutableList<Track> = ListTrack().filinglistTrack()
+
     class TrackHolder(item: View) : RecyclerView.ViewHolder(item) {
         private val trackName: TextView = itemView.findViewById(R.id.trackName)
         private val artistName: TextView = itemView.findViewById(R.id.artistName)
         private val trackTime: TextView = itemView.findViewById(R.id.trackTime)
         private val imageUrl: ImageView = itemView.findViewById(R.id.trackImage)
+
+        // Преобразование радиуса изгиба из dp в px
+        var context: Context = item.getContext()
+        var px: Int=dpToPx(2, context)
+        fun dpToPx(dp: Int, context: Context): Int {
+            return TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP, dp.toFloat(),
+                context.resources.displayMetrics).toInt()
+        }
+
         fun bind(track: Track) {
             trackName.text = track.trackName
             artistName.text = track.artistName
             trackTime.text = track.trackTime
-            Glide.with(itemView).load(track.artworkUrl100).placeholder(R.drawable.light_mode_settings).transform(RoundedCorners(10)).into(imageUrl)
+
+            Glide.with(itemView).load(track.artworkUrl100).placeholder(R.drawable.placeholder).transform(RoundedCorners(px)).into(imageUrl)
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrackHolder {
