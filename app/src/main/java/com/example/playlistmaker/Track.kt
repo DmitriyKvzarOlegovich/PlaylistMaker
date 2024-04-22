@@ -66,8 +66,6 @@ class TrackAdapter(var listTrack: MutableList<Track>) :
         private val imageUrl: ImageView = itemView.findViewById(R.id.trackImage)
 
         // Преобразование радиуса изгиба из dp в px
-        var context: Context = item.getContext()
-        var px: Int=dpToPx(2, context)
         fun dpToPx(dp: Int, context: Context): Int {
             return TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP, dp.toFloat(),
@@ -79,7 +77,7 @@ class TrackAdapter(var listTrack: MutableList<Track>) :
             artistName.text = track.artistName
             trackTime.text = track.trackTime
 
-            Glide.with(itemView).load(track.artworkUrl100).placeholder(R.drawable.placeholder).transform(RoundedCorners(px)).into(imageUrl)
+            Glide.with(itemView).load(track.artworkUrl100).placeholder(R.drawable.placeholder).transform(RoundedCorners(dpToPx(2, itemView.context))).into(imageUrl)
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrackHolder {
