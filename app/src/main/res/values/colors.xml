@@ -6,5 +6,6 @@
     <color name="setMenuIcon">#AEAFB4</color>
     <color name="grey">#E6E8EB</color>
     <color name="darckgrey">#AEAFB4</color>
+    background: #AEAFB4;
 
 </resources>

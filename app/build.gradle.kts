@@ -33,10 +33,22 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures {
+        dataBinding = true
+//Почему такая редакция дает ошибку при попытке синхронизации? (dataBinding true) хотя во всех источниках пишут именно такой пример
+        viewBinding = true
+    }
+
 }
 
 dependencies {
 
+    //Подключение библиотеки Glide
+    implementation("com.google.android.material:material:1.6.1")
+    implementation("com.github.bumptech.glide:glide:4.14.2")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.14.2")
+    //
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
