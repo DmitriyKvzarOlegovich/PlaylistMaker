@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/containerList"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -36,12 +35,12 @@
                 style="@style/searchStyle"
                 android:layout_width="18dp"
                 android:layout_height="16dp"
-                android:tint="?attr/colorOnSecondary"
+                app:tint="?attr/colorOnSecondary"
                 android:layout_gravity="start|center_vertical"
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="3dp"
                 android:src="@drawable/light_mode_loupe"
-                app:drawableLeftCompat="@drawable/light_mode_loupe"
+
                 />
 
             <EditText
@@ -50,6 +49,8 @@
                 android:layout_marginTop="4dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:imeOptions="actionDone"
+                android:singleLine="true"
                 android:layout_marginStart="50dp"
                 android:background="@android:color/transparent"
                 android:hint="@string/search_play_list"
@@ -71,12 +72,71 @@
                 android:visibility="invisible"
                 android:imeOptions="actionDone"/>
             </FrameLayout>
+    <FrameLayout android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="16dp"
-        android:id="@+id/trackListFace"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="?attr/colorPrimaryVariant"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="16dp"
+            android:id="@+id/trackListFace"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/colorPrimaryVariant"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        <ImageView
+            android:id="@+id/placeholderImage"
+            style="@style/searchStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:drawableLeftCompat="@drawable/not_found"
+            android:layout_marginTop="102dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/not_found"
+            android:visibility="invisible"
+            android:imeOptions="actionDone"/>
+
+        <TextView
+            android:id="@+id/placeholderMessage"
+            style="@style/ButtonSettingsMenuStyle"
+            android:layout_marginStart="0dp"
+            android:layout_width="312dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center|top"
+            android:layout_marginTop="238dp"
+            android:fontFamily="@font/ys_text_regular"
+            android:textAlignment="center"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="@dimen/textWarning" />
+        <TextView
+            android:id="@+id/placeholderMessage2"
+            style="@style/ButtonSettingsMenuStyle"
+            android:layout_marginTop="238dp"
+            android:layout_marginStart="0dp"
+            android:layout_width="312dp"
+            android:layout_height="88dp"
+            android:layout_gravity="center|top"
+            android:fontFamily="@font/ys_text_regular"
+            android:textAlignment="center"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="@dimen/textWarning" />
+
+        <Button
+            android:id="@+id/buttonReBoot"
+            android:layout_width="91dp"
+            android:layout_height="36dp"
+            android:textColor="?attr/colorPrimaryVariant"
+            android:backgroundTint="?attr/colorOnPrimary"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginTop="350dp"
+            android:includeFontPadding="true"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:fontFamily="@font/ys_text_medium"
+            android:text="@string/reBoot"
+            android:textAlignment="center"
+            android:textSize="14sp" />
+
+
+    </FrameLayout>
+
 </LinearLayout>
