@@ -1,5 +1,6 @@
 package com.example.playlistmaker
 
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,12 +8,17 @@ import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatDelegate
 
+var darkTheme = false //Флаг темной темы
+var HistorylistTrack = ArrayList<Track>() //История поисков
+
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
 //Устанвока базовой светлой темы по умолчанию
-        if (AppCompatDelegate.getDefaultNightMode()<0) {AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)}
+        if (AppCompatDelegate.getDefaultNightMode() < 0) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 

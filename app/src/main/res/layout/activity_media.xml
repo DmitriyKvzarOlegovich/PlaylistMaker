@@ -8,12 +8,12 @@
     android:padding="@dimen/hight">
 
     <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:text="@string/title"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:text="@string/title"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text" />
 
     <LinearLayout
         android:layout_width="match_parent"
