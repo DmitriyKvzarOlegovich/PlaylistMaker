@@ -19,4 +19,8 @@
     <string name="email_fo_send">d@korolkov.info</string>
     <string name="send_to">https://practicum.yandex.ru/android-developer/</string>
     <string name="thanks">Спасибо разработчикам и разработчицам за крутое приложение!</string>
+    <string name="nothing_found">Ничего не нашлось</string>
+    <string name="something_went_wrong">Проблемы со связью \n \n Загрузка не удалась. Проверьте \n подключение к интернету</string>
+    <string name="reBoot">Обновить</string>
+
 </resources>
