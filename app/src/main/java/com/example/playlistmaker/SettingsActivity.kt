@@ -17,7 +17,11 @@ class SettingsActivity : AppCompatActivity() {
         val themeSwitch = findViewById<SwitchMaterial>(R.id.themeSwitcher)
 // заполнение в соответствии с темой
 
-        when (darkTheme) {
+        themeSwitch.isChecked=darkTheme
+        themeSwitch.text=getString(if (darkTheme)R.string.title_activity_dark else R.string.title_activity_light)
+
+
+        /*when (darkTheme) {
             true -> {
                 themeSwitch.text = getString(R.string.title_activity_dark)
                 themeSwitch.isChecked = true
@@ -27,7 +31,7 @@ class SettingsActivity : AppCompatActivity() {
                 themeSwitch.text = getString(R.string.title_activity_light)
                 themeSwitch.isChecked = false
             }
-        }
+        }*/
         //меню назад
         settingsBack.setOnClickListener {
             onBackPressed()

@@ -1,14 +1,17 @@
 package com.example.playlistmaker
 
 import android.content.SharedPreferences
+import androidx.core.content.edit
 import com.google.gson.Gson
 
 class SearchHistory {
     // чтение
     fun read(sharedPreferences: SharedPreferences): ArrayList<Track>? {
         val json = sharedPreferences.getString(EDIT_TEXT_KEY, null)// ?: return emptyArray()
-        val jsonArray = Gson().fromJson(json, Array<Track>::class.java)
-        return ArrayList(jsonArray.asList())
+       if (json!=null) { val jsonArray = Gson().fromJson(json, Array<Track>::class.java)
+
+        return ArrayList(jsonArray.asList())}
+        else {return ArrayList<Track>()}
     }
 
     // запись
@@ -36,10 +39,9 @@ class SearchHistory {
     }
 
     // запись
+
     fun writeTheme(sharedPreferences: SharedPreferences, theme: Boolean) {
-        sharedPreferences.edit()
-            .putBoolean(EDIT_Theme_KEY, theme)
-            .apply()
+        sharedPreferences.edit {putBoolean(EDIT_Theme_KEY, theme)}
     }
 
 }

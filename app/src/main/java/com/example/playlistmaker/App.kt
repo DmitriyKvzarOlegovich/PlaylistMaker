@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatDelegate
 
 
 const val EDIT_Theme_KEY = "key_for_edit_theme"
+const val PRACTICUM_EXAMPLE_PREFERENCES = "practicum_example_preferences"
+const val EDIT_TEXT_KEY = "key_for_edit_text"
+
 
 class App : Application() {
     override fun onCreate() {

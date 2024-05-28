@@ -25,13 +25,10 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.core.view.isVisible
 
-const val PRACTICUM_EXAMPLE_PREFERENCES = "practicum_example_preferences"
-const val EDIT_TEXT_KEY = "key_for_edit_text"
 
 class SearchActivity : AppCompatActivity() {
     private var searchInputEditText: String? = AMOUNT_DEF
     private lateinit var placeholderMessage: TextView
-    private lateinit var placeholderMessage2: TextView
     private lateinit var placeholderImage: ImageView
     private lateinit var buttonReBoot: Button
     private var searghtext: String = ""
@@ -52,37 +49,34 @@ class SearchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
         placeholderMessage = findViewById(R.id.placeholderMessageTrable)
-        placeholderMessage2 = findViewById(R.id.placeholderMessageTrable)
         placeholderImage = findViewById(R.id.placeholderImage)
         buttonReBoot = findViewById(R.id.buttonReBoot)
-        buttonReBoot.visibility = View.GONE
-        rvTrack = findViewById<RecyclerView>(R.id.trackListFace)
+        rvTrack = findViewById(R.id.trackListFace)
         rvHistory = findViewById(R.id.trackListHistori)
         buttonCleanHistory = findViewById(R.id.buttonCleanHistory)
         layoutHistory = findViewById(R.id.containerHistori)
         layoutTrable = findViewById(R.id.containerNot)
         layoutListFace = findViewById(R.id.containerListFace)
         val sharedPrefs = getSharedPreferences(PRACTICUM_EXAMPLE_PREFERENCES, MODE_PRIVATE)
-        layoutTrable.visibility = View.GONE
-        layoutHistory.visibility = View.GONE
         rvTrack.layoutManager = LinearLayoutManager(this)
-
         val inputEditText = findViewById<EditText>(R.id.inputEditText)
 //Считываем историю
+
+
         if (SearchHistory().read(sharedPrefs)?.isEmpty() == false) {
-            layoutHistory.visibility = View.VISIBLE
-            layoutListFace.visibility = View.GONE
+            layoutHistory.isVisible = true
+            layoutListFace.isVisible = false
             rvHistory.adapter = TrackAdapter(SearchHistory().read(sharedPrefs))
         } else {
             inputEditText.requestFocus()
-            layoutListFace.visibility = View.VISIBLE
-            layoutHistory.visibility = View.GONE
+            layoutListFace.isVisible = true
+            layoutHistory.isVisible = false
         }
 // Отработка нажатия на очистку истории
         buttonCleanHistory.setOnClickListener {
             //весь список в память
-            layoutHistory.visibility = View.GONE
-            layoutListFace.visibility = View.VISIBLE
+            layoutHistory.isVisible = false
+            layoutListFace.isVisible = true
             HistorylistTrack.clear()
             SearchHistory().write(sharedPrefs, HistorylistTrack)
             inputEditText.requestFocus()
@@ -95,19 +89,15 @@ class SearchActivity : AppCompatActivity() {
             onBackPressed()
             //весь список в память
             SearchHistory().write(sharedPrefs, HistorylistTrack)
-
         }
-
 //нажатие отработка повторного запроса плей листа
         buttonReBoot.setOnClickListener {
             listTrack = fillTrackList(searghtext)
             rvTrack.adapter?.notifyDataSetChanged()
         }
-
 //Работа с поиском
-        //val inputEditText = findViewById<EditText>(R.id.inputEditText)
         val clearButton = findViewById<ImageView>(R.id.clearIcon)
-// Очистка поля ввода
+        // Очистка поля ввода
         clearButton.setOnClickListener {
             inputEditText.setText("")
             inputEditText.requestFocus()
@@ -118,35 +108,36 @@ class SearchActivity : AppCompatActivity() {
             listTrack.clear()
             rvTrack.adapter?.notifyDataSetChanged()
             inputEditText.requestFocus()
-            layoutTrable.visibility = View.GONE
+            layoutTrable.isVisible = false
         }
         inputEditText.setText(searchInputEditText)
-        val simpleTextWatcher = object : TextWatcher {
-            override fun beforeTextChanged(
-                s: CharSequence?,
-                start: Int,
-                count: Int,
-                after: Int
-            ) {
-                // empty
-            }
+        val simpleTextWatcher =
+            object : TextWatcher { // не разобрался как сделать слушателя без создания обйекта
+                override fun beforeTextChanged(
+                    s: CharSequence?,
+                    start: Int,
+                    count: Int,
+                    after: Int
+                ) {
+                    // empty
+                }
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                layoutTrable.visibility = View.GONE
-                layoutHistory.visibility =
-                    if (inputEditText.hasFocus() && s?.isEmpty() == true && HistorylistTrack.size > 0) View.VISIBLE else View.GONE
-                if (s.isNullOrEmpty()) {
-                    clearButton.isVisible = false
-                } else {
-                    searchInputEditText = s.toString()
-                    clearButton.isVisible = true
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                    layoutTrable.visibility = View.GONE
+                    layoutHistory.visibility =
+                        if (inputEditText.hasFocus() && s?.isEmpty() == true && HistorylistTrack.size > 0) View.VISIBLE else View.GONE
+                    if (s.isNullOrEmpty()) {
+                        clearButton.isVisible = false
+                    } else {
+                        searchInputEditText = s.toString()
+                        clearButton.isVisible = true
+                    }
+                }
+
+                override fun afterTextChanged(s: Editable?) {
+                    onSaveInstanceState(Bundle())  // empty
                 }
             }
-
-            override fun afterTextChanged(s: Editable?) {
-                onSaveInstanceState(Bundle())  // empty
-            }
-        }
         inputEditText.addTextChangedListener(simpleTextWatcher)
         inputEditText.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
@@ -156,16 +147,16 @@ class SearchActivity : AppCompatActivity() {
                 listTrack = fillTrackList(searghtext)
                 rvTrack.layoutManager = LinearLayoutManager(this)
                 rvTrack.adapter = TrackAdapter(listTrack)
-                true
+                //true
             }
             false
         }
     }
 
     //Переопределяем сохранение зачения текстового поля ввода
-    override fun onSaveInstanceState(savedInstanceState: Bundle) {
-        super.onSaveInstanceState(savedInstanceState)
-        savedInstanceState.putString(PRODUCT_AMOUNT, searchInputEditText)
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString(PRODUCT_AMOUNT, searchInputEditText)
     }
 
     //Переопределяем востановление зачения текстового поля ввода
@@ -179,12 +170,12 @@ class SearchActivity : AppCompatActivity() {
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = HttpLoggingInterceptor.Level.BODY
         val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
-        var retrofit = Retrofit.Builder()
+        val retrofit = Retrofit.Builder()
             .baseUrl(iTunesBaseUrl).client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-        var itunesService = retrofit.create(iTunesAPI::class.java)
-        var temp: Call<TrackResponse> = itunesService.search(text)
+        val itunesService = retrofit.create(iTunesAPI::class.java)
+        val temp: Call<TrackResponse> = itunesService.search(text)
         temp.enqueue(object : Callback<TrackResponse> {
             override fun onResponse(
                 call: Call<TrackResponse>,
@@ -218,29 +209,29 @@ class SearchActivity : AppCompatActivity() {
     }
 
     fun showMessage(text: String, additionalMessage: String) {
-        layoutHistory.visibility = View.GONE
-        layoutListFace.visibility = View.GONE
+        layoutHistory.isVisible = false
+        layoutListFace.isVisible = false
         if (text.isNotEmpty()) {
             //блок ничего не найдено
-            layoutTrable.visibility = View.VISIBLE
+            layoutTrable.isVisible = true
             placeholderMessage.text = text
             placeholderImage.setImageDrawable(getDrawable(R.drawable.not_found))
-            buttonReBoot.visibility = View.GONE
+            buttonReBoot.isVisible = false
             listTrack.clear()
-            rvTrack.adapter?.notifyDataSetChanged()
+            // rvTrack.adapter?.notifyDataSetChanged()
 
             if (additionalMessage.isNotEmpty()) {
                 //блок проблем с интернетом
                 placeholderMessage.text = getString(R.string.something_went_wrong)
                 placeholderImage.setImageDrawable(getDrawable(R.drawable.not_net))
-                buttonReBoot.visibility = View.VISIBLE
+                buttonReBoot.isVisible = true
                 listTrack.clear()
-                rvTrack.adapter?.notifyDataSetChanged()
+                // rvTrack.adapter?.notifyDataSetChanged()
             }
         } else {
             //блок  очистки поля для
-            layoutTrable.visibility = View.GONE
-            layoutListFace.visibility = View.VISIBLE
+            layoutTrable.isVisible = false
+            layoutListFace.isVisible = true
         }
     }
 }
