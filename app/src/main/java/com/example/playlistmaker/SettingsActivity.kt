@@ -5,7 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
+import com.google.android.material.switchmaterial.SwitchMaterial
 
 class SettingsActivity : AppCompatActivity() {
 
@@ -13,32 +13,36 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
         val settingsBack = findViewById<TextView>(R.id.settingsBack)
+        val sharedPrefs = getSharedPreferences(PRACTICUM_EXAMPLE_PREFERENCES, MODE_PRIVATE)
+        val themeSwitch = findViewById<SwitchMaterial>(R.id.themeSwitcher)
+// заполнение в соответствии с темой
+
+        themeSwitch.isChecked=darkTheme
+        themeSwitch.text=getString(if (darkTheme)R.string.title_activity_dark else R.string.title_activity_light)
+
+
+        /*when (darkTheme) {
+            true -> {
+                themeSwitch.text = getString(R.string.title_activity_dark)
+                themeSwitch.isChecked = true
+            }
+
+            false -> {
+                themeSwitch.text = getString(R.string.title_activity_light)
+                themeSwitch.isChecked = false
+            }
+        }*/
+        //меню назад
         settingsBack.setOnClickListener {
             onBackPressed()
         }
 
 //смена темы
-        val themeSwitch = findViewById<androidx.appcompat.widget.SwitchCompat>(R.id.themeSwitch)
-        val mode = AppCompatDelegate.getDefaultNightMode()
-        if (mode == 1) {
-            themeSwitch.text = getString(R.string.title_activity_light)
-        } else {
-            themeSwitch.text = getString(R.string.title_activity_dark)
-            themeSwitch.isChecked = true
+        themeSwitch.setOnCheckedChangeListener { _, checked ->
+            (applicationContext as App).switchTheme(checked)
+            SearchHistory().writeTheme(sharedPrefs, checked)
         }
-        themeSwitch.setOnCheckedChangeListener { _, checkedId ->
-            when (checkedId) {
-                true -> {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                    themeSwitch.text = getString(R.string.title_activity_dark)
-                }
 
-                false -> {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                    themeSwitch.text = getString(R.string.title_activity_light)
-                }
-            }
-        }
 
 //Разшарить приложение
         val buttonShare = findViewById<TextView>(R.id.buttonShare)
@@ -57,7 +61,7 @@ class SettingsActivity : AppCompatActivity() {
                 val email = arrayOf(getString(R.string.email_fo_send))
                 data = Uri.parse("mailto:${getString(R.string.email_fo_send)}")
                 putExtra(Intent.EXTRA_EMAIL, email)
-                putExtra(Intent.EXTRA_TEXT , getString(R.string.thanks))
+                putExtra(Intent.EXTRA_TEXT, getString(R.string.thanks))
                 putExtra(Intent.EXTRA_SUBJECT, getString(R.string.send_play_list_message))
                 startActivity(Intent.createChooser(this, null))
             }

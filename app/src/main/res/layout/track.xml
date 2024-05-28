@@ -38,9 +38,9 @@
                 android:layout_height="19dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="14dp"
-                tools:text="Наименование трека"
                 android:textColor="?attr/colorOnPrimary"
-                android:textSize="@dimen/textMin" />
+                android:textSize="@dimen/textMin"
+                tools:text="Наименование трека" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -84,14 +84,14 @@
     </LinearLayout>
 
     <ImageView
-            android:id="@+id/trackInto"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="end"
-            android:layout_marginTop="18dp"
-            android:layout_marginEnd="12dp"
-            android:layout_weight="1"
-            android:src="@drawable/light_mode_user"
-            app:tint="?attr/colorSecondaryVariant" />
+        android:id="@+id/trackInto"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="12dp"
+        android:layout_weight="1"
+        android:src="@drawable/light_mode_user"
+        app:tint="?attr/colorSecondaryVariant" />
 
 </androidx.cardview.widget.CardView>

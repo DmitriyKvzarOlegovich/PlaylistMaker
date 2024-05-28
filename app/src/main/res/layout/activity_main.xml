@@ -5,10 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:background="?attr/colorPrimary"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="20dp"
+    tools:context=".MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -26,34 +26,34 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/buttonSearchL"
             style="@style/ButtonMainMenuStyle"
             android:layout_width="match_parent"
             android:layout_height="@dimen/zero"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/hight"
-            android:id="@+id/buttonSearchL"
             android:text="@string/search_play_list"
             app:icon="@drawable/light_mode_loupe" />
 
         <Button
+            android:id="@+id/buttonMediaL"
             style="@style/ButtonMainMenuStyle"
             android:layout_width="match_parent"
             android:layout_height="@dimen/zero"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/hight"
-            android:id="@+id/buttonMediaL"
             android:text="@string/media_play_list"
             app:icon="@drawable/light_mode_media" />
 
         <Button
+            android:id="@+id/buttonSettingsL"
             style="@style/ButtonMainMenuStyle"
             android:layout_width="match_parent"
             android:layout_height="@dimen/zero"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/hight"
-            android:id="@+id/buttonSettingsL"
             android:text="@string/settings_play_list"
-            app:icon="@drawable/light_mode_settings"/>
+            app:icon="@drawable/light_mode_settings" />
 
     </LinearLayout>
 </LinearLayout>
